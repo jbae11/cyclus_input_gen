@@ -322,18 +322,18 @@ def reactor_render(reactor_data, output_file, special):
                   'assemblies_per_core': 473 / 500.0,
                   'assemblies_per_batch': 60}
     pwr_spec = {'template': pwr_template,
-                'kg_per_assembly': 446.0,
-                'assemblies_per_core': 193 / 1000.0,
-                'assemblies_per_batch': 193 / 3000.0}
+                'kg_per_assembly': 446.0 * 193 / 3000.0,
+                'assemblies_per_core': 3,
+                'assemblies_per_batch': 1}
     epr_spec = {'template': pwr_template,
-                'kg_per_assembly': 467.0,
-                'assemblies_per_core': 216,
-                'assemblies_per_batch': 72}
+                'kg_per_assembly': 467.0 * 216 / 4800,
+                'assemblies_per_core': 3,
+                'assemblies_per_batch': 1}
 
     reactor_specs = {'AP1000': ap1000_spec,
-                     'PHWR': phwr_spec,
+                     #'PHWR': phwr_spec,
                      'BWR': bwr_spec,
-                     'CANDU': candu_spec,
+                     #'CANDU': candu_spec,
                      'PWR': pwr_spec,
                      'EPR': epr_spec}
 
