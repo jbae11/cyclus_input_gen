@@ -65,6 +65,10 @@ def read_csv(csv_file, country_list):
     for indx, reactor in enumerate(reactor_array):
         if reactor['country'].decode('utf-8') not in country_list:
             indx_list.append(indx)
+        nono_str_list = ['cancel', 'defer', 'review', 'suspend']
+        for i in nono_str_list:
+            if i in reactor['status'].decode('utf-8').lower():
+                indx_list.append(indx)
     reactor_array = np.delete(reactor_array, indx_list, axis=0)
 
     for indx, reactor in enumerate(reactor_array):
@@ -263,6 +267,7 @@ def refine_name(name_data):
     end = name.find(')')
     if start != -1 and end != -1:
         name = name[:start]
+    name = name.replace(r'&', 'and')
     return name
 
 
@@ -344,11 +349,9 @@ def reactor_render(reactor_data, output_file, special):
                 country=data['country'].decode('utf-8'),
                 type=reactor_type,
                 reactor_name=name,
-                assem_size=round(spec_dict['kg_per_assembly'], 3),
-                n_assem_core=int((spec_dict['assemblies_per_core']
-                                       * data['net_elec_capacity'])),
-                n_assem_batch=int((spec_dict['assemblies_per_batch']
-                                        * data['net_elec_capacity'])),
+                assem_size=round(spec_dict['kg_per_assembly'] * data['net_elec_capacity'], 3),
+                n_assem_core=spec_dict['assemblies_per_core'],
+                n_assem_batch=spec_dict['assemblies_per_batch'],
                 capacity=data['net_elec_capacity'])
         else:
             # assume 1000MWe pwr linear core size model if no match
@@ -366,7 +369,8 @@ def reactor_render(reactor_data, output_file, special):
 
 
 def input_render(init_date, duration, reactor_file,
-                 region_file, output_file, reprocessing):
+                 region_file, output_file, reprocessing,
+                 special):
     """Creates total input file from region and reactor file
 
     Parameters
@@ -410,6 +414,9 @@ def input_render(init_date, duration, reactor_file,
                                         reprocessing=reprocessing_chunk,
                                         reactor_input=reactor,
                                         region_input=region)
+    if 'f33' in special:
+        f33_str = '<spec><lib>f33_reactor.f33_reactor</lib><name>f33_reactor</name></spec></archetypes>'
+        rendered_template = rendered_template.replace('</archetypes>', f33_str)
 
     with open(output_file, 'w') as output:
         output.write(rendered_template)
@@ -551,7 +558,8 @@ def main(csv_file, init_date, duration,
     reactor_render(csv_database, reactor_output_filename, special=special)
     region_render(csv_database, region_output_filename)
     input_render(init_date, duration, reactor_output_filename,
-                 region_output_filename, output_file, reprocessing)
+                 region_output_filename, output_file, reprocessing,
+                 special)
 
     if 'f33' in special:
         print('Makes sure you fill in the following:')
