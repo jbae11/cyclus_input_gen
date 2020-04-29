@@ -28,26 +28,17 @@ class template_collections:
 """
 
     region_output_template = """
-     <facility>
-    <!-- {{ country }} -->
-    <!-- {{   type  }} -->
-    <name>{{ reactor_name }}</name>
-    <config>
-      <Reactor>
-        <fuel_inrecipes>  <val>natl_u_recipe</val>       </fuel_inrecipes>
-        <fuel_outrecipes> <val>used_candu_recipe</val>  </fuel_outrecipes>
-        <fuel_incommods>  <val>natl_u</val>                   </fuel_incommods>
-        <fuel_outcommods> <val>used_candu</val>             </fuel_outcommods>
-        <fuel_prefs>      <val>1.0</val>                   </fuel_prefs>
-        <cycle_time>1</cycle_time>
-        <refuel_time>0</refuel_time>
-        <assem_size>{{assem_size}}</assem_size>
-        <n_assem_core>{{ n_assem_core}}</n_assem_core>
-        <n_assem_batch>{{n_assem_batch}}</n_assem_batch>
-        <power_cap>{{capacity}}</power_cap>
-      </Reactor>
-    </config>
-  </facility>
+    <region>
+     <name>{{ country }} </name>
+     <config><NullRegion></NullRegion></config>
+     <institution>
+     <name>{{ country_gov }}</name>
+     <config>
+     <DeployInst>
+     {{ deployinst }}
+     </DeployInst>
+     </config> </institution>
+     </region>
 """
 
     pwr_template_cyborg = """
@@ -79,7 +70,7 @@ class template_collections:
         <!-- {{   type  }} -->
         <name>{{ reactor_name }}</name>
         <config>
-          <Reactor>
+          <f33_reactor>
             <fuel_inrecipe>uox_fuel_recipe</fuel_inrecipe>
             <fuel_incommod>uox</fuel_incommod>
             <fuel_outcommod>uox_waste</fuel_outcommod>
@@ -93,7 +84,7 @@ class template_collections:
             <keep_origen_files>0</keep_origen_files>
             <f33_path>$f33_path</f33_path>
             <bu_randomness_frac>$bu_randomness_frac</bu_randomness_frac>
-          </Reactor>
+          </f33_reactor>
         </config>
       </facility>
     """

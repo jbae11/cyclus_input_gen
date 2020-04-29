@@ -179,7 +179,7 @@ def get_lifetime(start_date, end_date):
 
     """
 
-    if end_date != -1:
+    if int(end_date) != -1:
         end_year, end_month = get_ymd(end_date)
         start_year, start_month = get_ymd(start_date)
         year_difference = end_year - start_year
@@ -215,6 +215,8 @@ def get_entrytime(init_date, start_date):
     init_year, init_month = get_ymd(init_date)
     start_date = int(start_date)
     start_year, start_month = get_ymd(start_date)
+    print('init', init_year, init_month)
+    print('start', start_year, start_month)
 
     year_difference = start_year - init_year
     month_difference = start_month - init_month
@@ -309,9 +311,10 @@ def reactor_render(reactor_data, output_file, special):
                    'kg_per_assembly': 612.5 * 157 / 3300 ,
                    'assemblies_per_core': 3,
                    'assemblies_per_batch': 1}
+    # from browns ferry
     bwr_spec = {'template': pwr_template,
-                'kg_per_assembly': 180 * 764 / 3000.0,
-                'assemblies_per_core': 3,
+                'kg_per_assembly': 180 * 764 / 4430.6,
+                'assemblies_per_core': 4,
                 'assemblies_per_batch': 1}
     phwr_spec = {'template': candu_template,
                  'kg_per_assembly': 8000 / 473,
@@ -443,6 +446,7 @@ def region_render(reactor_data, output_file):
     template = read_template(template_collections.deployinst_template)
     # full template is the bigger template for the `region block'.
     full_template = read_template(template_collections.region_output_template)
+    sd = {}
     country_list = []
     empty_country = []
 
@@ -450,15 +454,15 @@ def region_render(reactor_data, output_file):
     valtail = '</val>'
 
     # creates list of countries and turns it into a set
-    for data in reactor_data:
-        country_list.append(data['country'].decode('utf-8'))
-    country_set = set(country_list)
+    country_set = set([data['country'].decode('utf-8') for data in reactor_data])
+
 
     for country in country_set:
         prototype = ''
         entry_time = ''
         n_build = ''
         lifetime = ''
+        sd[country] = ''
 
         # for every reactor data corresponding to a country, create a
         # file with its `region block`
@@ -478,10 +482,13 @@ def region_render(reactor_data, output_file):
                                       start_time=entry_time,
                                       number=n_build,
                                       lifetime=lifetime)
+
         # if nothing is rendered the length will be less than 100:
+        
         if len(render_temp) > 100:
-            with open(country, 'a') as output:
-                output.write(render_temp)
+            sd[country] += render_temp
+            #with open(country, 'a') as output:
+            #    output.write(render_temp)
         else:
             empty_country.append(country)
 
@@ -489,24 +496,27 @@ def region_render(reactor_data, output_file):
     for country in empty_country:
         country_set.remove(country)
 
+    full_str = ''
     for country in country_set:
         # jinja render region template for different countries
-        with open(country, 'r') as ab:
-            country_input = ab.read()
-            country_body = full_template.render(
-                country=country,
-                country_gov=(country
-                             + '_government'),
-                deployinst=country_input)
-
+        country_body = full_template.render(country=country,
+                                            country_gov=country+'_government',
+                                            deployinst=sd[country])
         # write rendered template as 'country'_region
-        with open(country + '_region', 'a') as output:
-            output.write(country_body)
+        
+        full_str += country_body + '\n'
+        #with open(country + '_region', 'a') as output:
+        #    output.write(country_body)
 
         # concatenate the made file to the final output file and remove temp
-        os.system('cat ' + country + '_region >> ' + output_file)
-        os.system('rm ' + country)
-        os.system('rm ' + country + '_region')
+    print(full_str)
+    with open(output_file, 'w') as f:
+        f.write(full_str)
+        #os.system('cat ' + country + '_region >> ' + output_file)
+        #os.system('rm ' + country)
+        #os.system('rm ' + country + '_region')
+
+    print(open(output_file).read())
 
 
 def main(csv_file, init_date, duration,
@@ -545,8 +555,12 @@ def main(csv_file, init_date, duration,
     csv_database = read_csv(csv_file, country_list)
 
     for data in csv_database:
+        if data['first_crit'] == -1:
+            continue
         entry_time = get_entrytime(init_date, data['first_crit'])
         lifetime = get_lifetime(data['first_crit'], data['shutdown_date'])
+        #print('lifetime', lifetime)
+        #print('\tentertime', entry_time)
         if entry_time <= 0:
             lifetime = lifetime + entry_time
             if lifetime < 0:
@@ -554,6 +568,7 @@ def main(csv_file, init_date, duration,
             entry_time = 1
         data['entry_time'] = entry_time
         data['lifetime'] = lifetime
+
     # renders reactor / region / input file.
     reactor_render(csv_database, reactor_output_filename, special=special)
     region_render(csv_database, region_output_filename)
