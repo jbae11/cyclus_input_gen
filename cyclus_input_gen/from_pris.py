@@ -266,7 +266,7 @@ def refine_name(name_data):
     return name
 
 
-def reactor_render(reactor_data, output_file, is_cyborg=False):
+def reactor_render(reactor_data, output_file, special):
     """Takes the list and template and writes a reactor file
 
     Parameters
@@ -292,19 +292,22 @@ def reactor_render(reactor_data, output_file, is_cyborg=False):
     mox_reactor_template = read_template(template_collections.mox_template)
     candu_template = read_template(template_collections.candu_template)
 
-    if is_cyborg:
+    if 'cyborg' in special:
         pwr_template = read_template(template_collections.pwr_template_cyborg)
         mox_reactor_template = read_template(template_collections.mox_template_cyborg)
         candu_template = read_template(template_collections.candu_template_cyborg)
 
+    if 'f33' in special:
+        pwr_template = read_template(template_collections.pwr_template_f33)
+
     ap1000_spec = {'template': pwr_template,
-                   'kg_per_assembly': 446.0,
-                   'assemblies_per_core': 157 / 1110.0,
-                   'assemblies_per_batch': 52 / 3330.0}
+                   'kg_per_assembly': 612.5 * 157 / 3300 ,
+                   'assemblies_per_core': 3,
+                   'assemblies_per_batch': 1}
     bwr_spec = {'template': pwr_template,
-                'kg_per_assembly': 180,
-                'assemblies_per_core': 764 / 1000.0,
-                'assemblies_per_batch': 764 / 3000.0}
+                'kg_per_assembly': 180 * 764 / 3000.0,
+                'assemblies_per_core': 3,
+                'assemblies_per_batch': 1}
     phwr_spec = {'template': candu_template,
                  'kg_per_assembly': 8000 / 473,
                  'assemblies_per_core': 473 / 500.0,
@@ -353,11 +356,9 @@ def reactor_render(reactor_data, output_file, is_cyborg=False):
                 country=data['country'].decode('utf-8'),
                 reactor_name=name,
                 type=reactor_type,
-                assem_size=523.4,
-                n_assem_core=int(
-                    round(data['net_elec_capacity'] / 1000 * 193)),
-                n_assem_batch=int(
-                    round(data['net_elec_capacity'] / 3000 * 193)),
+                assem_size=523.4*193/3000 * data['net_elec_capacity'],
+                n_assem_core=3,
+                n_assem_batch=1,
                 capacity=data['net_elec_capacity'])
 
         with open(output_file, 'a') as output:
@@ -502,7 +503,8 @@ def region_render(reactor_data, output_file):
 
 
 def main(csv_file, init_date, duration,
-         country_list, output_file='complete_input.xml', reprocessing=True):
+         country_list, output_file='complete_input.xml', reprocessing=True,
+         special=''):
     """ Generates cyclus input file from csv files and jinja templates.
 
     Parameters
@@ -546,7 +548,13 @@ def main(csv_file, init_date, duration,
         data['entry_time'] = entry_time
         data['lifetime'] = lifetime
     # renders reactor / region / input file.
-    reactor_render(csv_database, reactor_output_filename)
+    reactor_render(csv_database, reactor_output_filename, special=special)
     region_render(csv_database, region_output_filename)
     input_render(init_date, duration, reactor_output_filename,
                  region_output_filename, output_file, reprocessing)
+
+    if 'f33' in special:
+        print('Makes sure you fill in the following:')
+        print('\t$f33_path')
+        print('\t$scalerte_path')
+        print('\t$bu_randomness_frac')

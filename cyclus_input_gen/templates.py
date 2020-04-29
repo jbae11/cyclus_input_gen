@@ -73,6 +73,31 @@ class template_collections:
 </facility>
 """
 
+    pwr_template_f33 = """
+         <facility>
+        <!-- {{ country }} -->
+        <!-- {{   type  }} -->
+        <name>{{ reactor_name }}</name>
+        <config>
+          <Reactor>
+            <fuel_inrecipe>uox_fuel_recipe</fuel_inrecipe>
+            <fuel_incommod>uox</fuel_incommod>
+            <fuel_outcommod>uox_waste</fuel_outcommod>
+            <cycle_time_eq>18</cycle_time_eq>
+            <refuel_time_eq>2</refuel_time_eq>
+            <assem_size>{{assem_size}}</assem_size>
+            <n_assem_core>{{ n_assem_core}}</n_assem_core>
+            <n_assem_batch>{{n_assem_batch}}</n_assem_batch>
+            <power_cap>{{capacity}}</power_cap>
+            <scalerte_path>$scalerte_path</scalerte_path>
+            <keep_origen_files>0</keep_origen_files>
+            <f33_path>$f33_path</f33_path>
+            <bu_randomness_frac>$bu_randomness_frac</bu_randomness_frac>
+          </Reactor>
+        </config>
+      </facility>
+    """
+
     pwr_template = """
      <facility>
     <!-- {{ country }} -->
@@ -386,7 +411,7 @@ class template_collections:
     <basis>mass</basis>
      <nuclide> <id>U234</id>  <comp>0.0002558883</comp> </nuclide> 
      <nuclide> <id>U235</id>  <comp>0.0319885317</comp> </nuclide> 
-     <nuclide> <id>U238</id>  <comp>0.96775558</comp> </nuclide> 
+     <nuclide> <id>U238</id>  <comp>0.96775558</comp> </nuclide>
   </recipe> 
 
   <recipe>
