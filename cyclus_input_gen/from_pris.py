@@ -45,7 +45,11 @@ class from_pris:
 
         self.reactor_data = self.read_csv()
         for data in self.reactor_data:
-            print(data['reactor_name'])
+            #print(data['reactor_name'])
+            #print(int(data['first_crit']))
+            #print(type(data['first_crit']))
+            data['first_crit'] = int(data['first_crit'].decode('utf-8'))
+            #print(data['first_crit'])
             entry_time = self.get_entrytime(self.init_date, data['first_crit'])
             lifetime = self.get_lifetime(data['first_crit'], data['shutdown_date'])
             if entry_time <= 0:
@@ -111,15 +115,15 @@ class from_pris:
 
         # convert dates to standard date format
         for indx, reactor in enumerate(reactor_array):
-            reactor_array[indx]['const_date'] = self.std_date_format(
-                reactor['const_date'])
-            reactor_array[indx]['first_crit'] = self.std_date_format(reactor['first_crit'])
-            reactor_array[indx]['first_grid'] = self.std_date_format(
-                reactor['first_grid'])
-            reactor_array[indx]['commercial'] = self.std_date_format(
-                reactor['commercial'])
-            reactor_array[indx]['shutdown_date'] = self.std_date_format(
-                reactor['shutdown_date'])
+            reactor_array[indx]['const_date'] = int(self.std_date_format(
+                reactor['const_date']))
+            reactor_array[indx]['first_crit'] = int(self.std_date_format(reactor['first_crit']))
+            reactor_array[indx]['first_grid'] = int(self.std_date_format(
+                reactor['first_grid']))
+            reactor_array[indx]['commercial'] = int(self.std_date_format(
+                reactor['commercial']))
+            reactor_array[indx]['shutdown_date'] = int(self.std_date_format(
+                reactor['shutdown_date']))
 
         # filter reactors with less than 100 MWe (research reactors)
         return [row for row in reactor_array if row['net_elec_capacity'] > 100]
@@ -226,6 +230,7 @@ class from_pris:
             timestep of the prototype to enter
 
         """
+        start_date = int(start_date)
         init_year, init_month = self.get_ymd(init_date)
         start_year, start_month = self.get_ymd(start_date)
 
@@ -271,6 +276,7 @@ class from_pris:
         template_dict = {k:self.read_template(v) for k, v in template_dict.items()}
 
 
+        # from NRC application
         ap1000_spec = {'template': template_dict['pwr'],
                        'kg_per_assembly': 612.5 * 157 / 3300 ,
                        'assemblies_per_core': 3,
@@ -354,7 +360,8 @@ class from_pris:
                         assem_size=round(spec_dict['kg_per_assembly'] * val, 3),
                         n_assem_core=spec_dict['assemblies_per_core'],
                         n_assem_batch=spec_dict['assemblies_per_batch'],
-                        capacity=data['net_elec_capacity'])
+                        capacity=val)
+                self.reactor_str += reactor_body + '\n'
             self.done_generic = True
 
 
