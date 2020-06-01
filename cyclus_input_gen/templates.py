@@ -52,7 +52,7 @@ class template_collections:
         <assem_size>{{assem_size}}</assem_size>
         <fuel_recipes>    <val>uox_fuel_recipe</val>      </fuel_recipes>
         <fuel_incommods>  <val>uox</val>           </fuel_incommods>
-        <cycle_time>18</cycle_time>
+        <cycle_time>15</cycle_time>
         <refuel_time>2</refuel_time>
         <assembly_type>ce16x16</assembly_type>
         <fuel_type>UOX</fuel_type>
@@ -74,7 +74,7 @@ class template_collections:
             <fuel_inrecipe>uox_fuel_recipe</fuel_inrecipe>
             <fuel_incommod>uox</fuel_incommod>
             <fuel_outcommod>uox_waste</fuel_outcommod>
-            <cycle_time_eq>18</cycle_time_eq>
+            <cycle_time_eq>15</cycle_time_eq>
             <refuel_time_eq>2</refuel_time_eq>
             <assem_size>{{assem_size}}</assem_size>
             <n_assem_core>{{ n_assem_core}}</n_assem_core>
@@ -101,7 +101,7 @@ class template_collections:
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
         <fuel_outcommods> <val>uox_waste</val>             </fuel_outcommods>
         <fuel_prefs>      <val>1.0</val>                   </fuel_prefs>
-        <cycle_time>18</cycle_time>
+        <cycle_time>15</cycle_time>
         <refuel_time>2</refuel_time>
         <assem_size>{{assem_size}}</assem_size>
         <n_assem_core>{{ n_assem_core}}</n_assem_core>
@@ -111,6 +111,54 @@ class template_collections:
     </config>
   </facility>
 """
+
+    smr_template_f33 = """
+        <facility>
+            <!-- {{ country }} -->
+            <!-- {{   type  }} -->
+            <name>{{ reactor_name }}</name>
+            <config>
+              <f33_reactor>
+                <fuel_inrecipe>uox_fuel_recipe</fuel_inrecipe>
+                <fuel_incommod>uox</fuel_incommod>
+                <fuel_outcommod>uox_waste</fuel_outcommod>
+                <cycle_time_eq>24</cycle_time_eq>
+                <refuel_time_eq>2</refuel_time_eq>
+                <assem_size>{{assem_size}}</assem_size>
+                <n_assem_core>{{ n_assem_core}}</n_assem_core>
+                <n_assem_batch>{{n_assem_batch}}</n_assem_batch>
+                <power_cap>{{capacity}}</power_cap>
+                <scalerte_path>$scalerte_path</scalerte_path>
+                <keep_origen_files>0</keep_origen_files>
+                <f33_path>$f33_path</f33_path>
+                <bu_randomness_frac>$bu_randomness_frac</bu_randomness_frac>
+              </f33_reactor>
+            </config>
+          </facility>
+        """
+
+    smr_template = """
+         <facility>
+        <!-- {{ country }} -->
+        <!-- {{   type  }} -->
+        <name>{{ reactor_name }}</name>
+        <config>
+          <Reactor>
+            <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
+            <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
+            <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
+            <fuel_outcommods> <val>uox_waste</val>             </fuel_outcommods>
+            <fuel_prefs>      <val>1.0</val>                   </fuel_prefs>
+            <cycle_time>24</cycle_time>
+            <refuel_time>2</refuel_time>
+            <assem_size>{{assem_size}}</assem_size>
+            <n_assem_core>{{ n_assem_core}}</n_assem_core>
+            <n_assem_batch>{{n_assem_batch}}</n_assem_batch>
+            <power_cap>{{capacity}}</power_cap>
+          </Reactor>
+        </config>
+      </facility>
+    """
 
     mox_template_cyborg = """
      <facility>
@@ -124,7 +172,7 @@ class template_collections:
         <fuel_recipes>  <val>uox_fuel_recipe</val>       <val>mox_fuel_recipe</val>        </fuel_inrecipes>
         <fuel_incommods>  <val>uox</val>                   <val>mox</val>                    </fuel_incommods>
         <fuel_prefs>      <val>1.0</val>                   <val>2.0</val>                    </fuel_prefs>
-        <cycle_time>18</cycle_time>
+        <cycle_time>15</cycle_time>
         <refuel_time>2</refuel_time>
         <assembly_type>mox_ce16x16</assembly_type>
         <fuel_type>MOX</fuel_type>
@@ -148,7 +196,7 @@ class template_collections:
         <fuel_incommods>  <val>uox</val>                   <val>mox</val>                    </fuel_incommods>
         <fuel_outcommods> <val>uox_waste</val>             <val>mox_waste</val>              </fuel_outcommods>
         <fuel_prefs>      <val>1.0</val>                   <val>2.0</val>                    </fuel_prefs>
-        <cycle_time>18</cycle_time>
+        <cycle_time>15</cycle_time>
         <refuel_time>2</refuel_time>
         <assem_size>{{assem_size}}</assem_size>
         <n_assem_core>{{ n_assem_core}}</n_assem_core>
@@ -171,7 +219,7 @@ class template_collections:
         <fuel_incommods>  <val>nat_u</val>          </fuel_incommods>
         <fuel_outcommods> <val>magnox_waste</val>   </fuel_outcommods>
         <fuel_prefs>      <val>1.0</val>            </fuel_prefs>
-        <cycle_time>18</cycle_time>
+        <cycle_time>15</cycle_time>
         <refuel_time>2</refuel_time>
         <assem_size>{{assem_size}}</assem_size>
         <n_assem_core>{{ n_assem_core}}</n_assem_core>

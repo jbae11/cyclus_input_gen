@@ -41,6 +41,7 @@ class from_pris:
         self.output_file = output_file
         self.reprocessing = reprocessing
         self.special = special
+        self.done_generic = False
 
         self.reactor_data = self.read_csv()
         for data in self.reactor_data:
@@ -257,7 +258,7 @@ class from_pris:
     def reactor_render(self):
         self.reactor_str = ''
         template_dict = {}
-        for reactor in ['pwr', 'mox', 'candu']:
+        for reactor in ['pwr', 'mox', 'candu', 'smr']:
             template_dict[reactor] = getattr(template_collections, reactor+'_template')
 
         if 'cyborg' in self.special:
@@ -274,9 +275,8 @@ class from_pris:
                        'kg_per_assembly': 612.5 * 157 / 3300 ,
                        'assemblies_per_core': 3,
                        'assemblies_per_batch': 1}
-        # from browns ferry
         bwr_spec = {'template': template_dict['pwr'],
-                    'kg_per_assembly': 180 * 764 / 4430.6,
+                    'kg_per_assembly': 180 * 764 / 4392.0,
                     'assemblies_per_core': 4,
                     'assemblies_per_batch': 1}
         phwr_spec = {'template': template_dict['candu'],
@@ -295,13 +295,24 @@ class from_pris:
                     'kg_per_assembly': 467.0 * 216 / 4800,
                     'assemblies_per_core': 3,
                     'assemblies_per_batch': 1}
-
+        smr_spec = {'template': template_dict['smr'],
+                    'kg_per_assembly': 2997.12 / 50,
+                    'assemblies_per_core': 3,
+                    'assemblies_per_batch': 1}
+        pow_dict = {'AP1000': 1110,
+                    'BWR': 1260,
+                    'PWR': 1000,
+                    'EPR': 1600,
+                    'SMR': 50,
+                    '12_SMR': 600
+                    }
         reactor_specs = {'AP1000': ap1000_spec,
                      #'PHWR': phwr_spec,
                      'BWR': bwr_spec,
                      #'CANDU': candu_spec,
                      'PWR': pwr_spec,
-                     'EPR': epr_spec}
+                     'EPR': epr_spec,
+                     'SMR': smr_spec}
 
         for data in self.reactor_data:
             # refine name string
@@ -331,6 +342,20 @@ class from_pris:
                     capacity=data['net_elec_capacity'])
 
             self.reactor_str += reactor_body + '\n'
+
+        if not self.done_generic:
+            for key, val in pow_dict.items():
+                k = key.replace('12_', '')
+                spec_dict = reactor_specs[k]
+                reactor_body = spec_dict['template'].render(
+                        country=data['country'].decode('utf-8'),
+                        type=key,
+                        reactor_name=key,
+                        assem_size=round(spec_dict['kg_per_assembly'] * val, 3),
+                        n_assem_core=spec_dict['assemblies_per_core'],
+                        n_assem_batch=spec_dict['assemblies_per_batch'],
+                        capacity=data['net_elec_capacity'])
+            self.done_generic = True
 
 
     def region_render(self):
