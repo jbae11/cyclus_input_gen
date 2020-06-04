@@ -48,10 +48,10 @@ class from_pris:
             #print(data['reactor_name'])
             #print(int(data['first_crit']))
             #print(type(data['first_crit']))
-            data['first_crit'] = int(data['first_crit'].decode('utf-8'))
+            data['commercial'] = int(data['commercial'].decode('utf-8'))
             #print(data['first_crit'])
-            entry_time = self.get_entrytime(self.init_date, data['first_crit'])
-            lifetime = self.get_lifetime(data['first_crit'], data['shutdown_date'])
+            entry_time = self.get_entrytime(self.init_date, data['commercial'])
+            lifetime = self.get_lifetime(data['commercial'], data['shutdown_date'])
             if entry_time <= 0:
                 lifetime = max(lifetime + entry_time, 0)
                 entry_time = 1
