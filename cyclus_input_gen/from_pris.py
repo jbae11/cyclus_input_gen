@@ -3,13 +3,15 @@ import sys
 import jinja2
 import numpy as np
 import os
+import pandas as pd
 from datetime import datetime
 from cyclus_input_gen.templates import template_collections
 
 
 class from_pris:
     def __init__(self, csv_file, init_date, duration,
-                 country_list, output_file='complete_input.xml',
+                 country_list, assumed_lifetime=720,
+                 output_file='complete_input.xml',
                  reprocessing=True, special=''):
         """ Generates cyclus input file from csv files and jinja templates.
 
@@ -35,28 +37,22 @@ class from_pris:
         File with complete cyclus input file
         """
         self.csv_file = csv_file
-        self.init_date = init_date
+        self.init_date = self.process_init_date(init_date)
         self.duration = duration
         self.country_list = country_list
         self.output_file = output_file
+        self.assumed_lifetime = assumed_lifetime
         self.reprocessing = reprocessing
         self.special = special
         self.done_generic = False
 
         self.reactor_data = self.read_csv()
-        for data in self.reactor_data:
-            #print(data['reactor_name'])
-            #print(int(data['first_crit']))
-            #print(type(data['first_crit']))
-            data['commercial'] = int(data['commercial'].decode('utf-8'))
-            #print(data['first_crit'])
-            entry_time = self.get_entrytime(self.init_date, data['commercial'])
-            lifetime = self.get_lifetime(data['commercial'], data['shutdown_date'])
-            if entry_time <= 0:
-                lifetime = max(lifetime + entry_time, 0)
-                entry_time = 1
-            data['entry_time'] = entry_time
-            data['lifetime'] = lifetime
+
+        self.reactor_data['entry_time'] = self.get_entrytime(self.reactor_data['Commercial Date'])
+        self.reactor_data['lifetime'] = self.get_lifetime(list(self.reactor_data['entry_time']),
+                                                          list(self.reactor_data['Shutdown Date']))
+        # edit entry time to have at least 1
+        self.reactor_data['entry_time'] = [max(1, q) for q in self.reactor_data['entry_time']]
 
         self.reactor_render()
         self.region_render()
@@ -67,7 +63,37 @@ class from_pris:
             print('\t$scalerte_path')
             print('\t$bu_randomness_frac')
 
-    
+
+    def process_init_date(self, init_date):
+        year, month, day = init_date//10000, init_date%10000//100, init_date%100
+        return pd.to_datetime(f'{year}/{month}/{day}')
+
+
+    def get_entrytime(self, reactor_start_date):
+        dt = [q - self.init_date for q in list(reactor_start_date)]
+        # in months
+        dt = [int(q.total_seconds() / (3600 * 24 * 30)) for q in dt]
+        return dt
+
+
+    def get_delta_month(self, t0, t1):
+        dt = t1 - t0
+        return dt.total_seconds() / (3600 * 24 * 30)
+
+
+    def get_lifetime(self, entrytime, shutdown_date):
+        lifetime_list = []
+
+        for indx in range(len(entrytime)):
+            if str(shutdown_date[indx]) == 'NaT':
+                if entrytime[indx] < 0:
+                    lifetime_list.append(self.assumed_lifetime + entrytime[indx])
+                else:
+                    lifetime_list.append(self.assumed_lifetime)
+            else:
+                lifetime_list.append(self.get_delta_month(self.init_date, shutdown_date[indx]))
+        return lifetime_list
+
 
     def read_csv(self):
         """This function reads the csv file and returns the list.
@@ -82,176 +108,41 @@ class from_pris:
         reactor_array:  list
             array with the data from csv file
         """
-        reactor_array = np.genfromtxt(self.csv_file,
-                                      skip_header=2,
-                                      delimiter=',',
-                                      dtype=('S128', 'S128',
-                                             'S128', 'int',
-                                             'S128', 'S128', 'S128',
-                                             'int', 'S128',                                         
-                                             'S128', 'S128',
-                                             'S128', 'float',
-                                             'float', 'float',
-                                             'int', 'int'),
-                                      names=('country', 'reactor_name',
-                                             'type', 'net_elec_capacity',
-                                             'status', 'operator', 'const_date',
-                                             'cons_year', 'first_crit',
-                                             'first_grid', 'commercial',
-                                             'shutdown_date', 'ucf',
-                                             'lat', 'long',
-                                             'entry_time', 'lifetime'))
-        new_reactor = copy.deepcopy(reactor_array)
-        reactor_array = new_reactor
-        indx_list = []
-        for indx, reactor in enumerate(reactor_array):
-            if reactor['country'].decode('utf-8') not in self.country_list:
-                indx_list.append(indx)
-            nono_str_list = ['cancel', 'defer', 'review', 'suspend', 'under']
-            for i in nono_str_list:
-                if i in reactor['status'].decode('utf-8').lower():
-                    indx_list.append(indx)
-        reactor_array = np.delete(reactor_array, indx_list, axis=0)
+        df = pd.read_csv(self.csv_file, skiprows=1)
+        # check if countries are valid
+        for country in self.country_list:
+            if country not in df.Country.unique():
+                print(df.Country.unique())
+                raise ValueError('Country not in list')
+        filtered_df = df[df['Country'].isin(self.country_list)]
 
-        # convert dates to standard date format
-        for indx, reactor in enumerate(reactor_array):
-            reactor_array[indx]['const_date'] = int(self.std_date_format(
-                reactor['const_date']))
-            reactor_array[indx]['first_crit'] = int(self.std_date_format(reactor['first_crit']))
-            reactor_array[indx]['first_grid'] = int(self.std_date_format(
-                reactor['first_grid']))
-            reactor_array[indx]['commercial'] = int(self.std_date_format(
-                reactor['commercial']))
-            reactor_array[indx]['shutdown_date'] = int(self.std_date_format(
-                reactor['shutdown_date']))
+        # filter reactors that are not built
+        bad_status_list = ['Review Suspended', 'Suspended Constr.', 'Deferred', 'Cancelled Constr.',
+                           'Under Review', 'Under Construction']
+        filtered_df = filtered_df[~filtered_df['Status'].isin(bad_status_list)]
 
-        # filter reactors with less than 100 MWe (research reactors)
-        return [row for row in reactor_array if row['net_elec_capacity'] > 100]
+        # filter reactors that are already gone
+        filtered_df = filtered_df[filtered_df['Status'] != 'Permanent Shutdown']
 
+        # filter reactors with less than 100MWe (research reactors)
+        filtered_df = filtered_df[filtered_df['Net Capacity (MWe)'] > 100]
 
-    def std_date_format(self, date_string):
-        """ This function converts date format
-        MM/DD/YYYY to YYYYMMDD
+        # convert dates to datetime format
+        for column in ['First Criticality Date', 'First Grid Date',
+                       'Commercial Date', 'Shutdown Date']:
+            filtered_df[column] = pd.to_datetime(filtered_df[column])
 
-        Parameters:
-        -----------
-        date_string: str
-            string with date
-        
-        Returns:
-        --------
-        date: int
-            integer date with format YYYYMMDD
-        """
-        date_string = date_string.decode('utf-8')
+        # refine name
+        filtered_df['Reactor Unit'] = [self.refine_name(q) for q in filtered_df['Reactor Unit']]
 
-        if date_string.count('/') == 2:
-            obj = datetime.strptime(date_string, '%m/%d/%Y')
-            return int(obj.strftime('%Y%m%d'))
-        if len(date_string) == 4:
-            # default first of the year if only year is given
-            return int(date_string + '0101')
-        if date_string == '':
-            return int(-1)
-        return int(date_string)
-
-
-
-    def get_ymd(self, yyyymmdd):
-        """This function extracts year and month value from yyyymmdd format
-
-            The month value is rounded up if the day is above 16
-
-        Parameters
-        ---------
-        yyyymmdd: int
-            date in yyyymmdd format
-
-        Returns
-        -------
-        year: int
-            year
-        month: int
-            month
-        """
-        yyyymmdd = int(yyyymmdd)
-        year = yyyymmdd // 10000
-        month = (yyyymmdd // 100) % 100
-        day = yyyymmdd % 100
-        if day > 16:
-            month += 1
-        return year, month
-
-
-    def get_lifetime(self, start_date, end_date):
-        """This function gets the lifetime for a prototype given the
-           start and end date.
-
-        Parameters
-        ---------
-        start_date: int
-            start date of reactor - first criticality.
-        end_date: int
-            end date of reactor - null if not listed or unknown
-
-        Returns
-        -------
-        lifetime: int
-            lifetime of the prototype in months
-
-        """
-
-        if int(end_date) != -1:
-            end_year, end_month = self.get_ymd(end_date)
-            start_year, start_month = self.get_ymd(start_date)
-            dmonth = self.calc_dmonth(start_year, start_month,
-                                      end_year, end_month)
-            return dmonth
-
-        else:
-            return 720
-
-
-    def get_entrytime(self, init_date, start_date):
-        """This function converts the date format and saves it in variables.
-
-            All dates are in format - yyyymmdd
-
-        Parameters
-        ---------
-        init_date: int
-            start date of simulation
-        start_date: int
-            start date of reactor - first criticality.
-
-        Returns
-        -------
-        entry_time: int
-            timestep of the prototype to enter
-
-        """
-        start_date = int(start_date)
-        init_year, init_month = self.get_ymd(init_date)
-        start_year, start_month = self.get_ymd(start_date)
-
-        dmonth = self.calc_dmonth(init_year, init_month,
-                                  start_year, start_month)
-        print(init_date, start_date, dmonth)
-        return dmonth
-
-
-
-    def calc_dmonth(self, yi, mi, yf, mf):
-        dy = yf - yi
-        dm = mf - mi
-        return 12*dy + dm
+        return filtered_df
 
 
     def read_template(self, template):
         return jinja2.Template(template)
 
     def refine_name(self, name):
-        name = name.decode('utf-8')
+        name = name
         start = name.find('(')
         end = name.find(')')
         if start != -1 and end != -1:
@@ -313,39 +204,42 @@ class from_pris:
                     '12_SMR': 600
                     }
         reactor_specs = {'AP1000': ap1000_spec,
-                     #'PHWR': phwr_spec,
-                     'BWR': bwr_spec,
-                     #'CANDU': candu_spec,
-                     'PWR': pwr_spec,
-                     'EPR': epr_spec,
-                     'SMR': smr_spec}
+                         #'PHWR': phwr_spec,
+                         'BWR': bwr_spec,
+                         #'CANDU': candu_spec,
+                         'PWR': pwr_spec,
+                         'EPR': epr_spec,
+                         'SMR': smr_spec}
 
-        for data in self.reactor_data:
-            # refine name string
-            name = self.refine_name(data['reactor_name'])
-            reactor_type = data['type'].decode('utf-8')
+        print(f'Rendering {len(self.reactor_data)} reactors..')
+        for indx, row in self.reactor_data.iterrows():
+
+            name = row['Reactor Unit']
+            reactor_type = row['Type']
+            country = row['Country']
+            capacity = row['Net Capacity (MWe)']
             if reactor_type in reactor_specs.keys():
                 # if the reactor type matches with the pre-defined dictionary,
                 # use the specifications in the dictionary.
                 spec_dict = reactor_specs[reactor_type]
                 reactor_body = spec_dict['template'].render(
-                    country=data['country'].decode('utf-8'),
+                    country=country,
                     type=reactor_type,
                     reactor_name=name,
-                    assem_size=round(spec_dict['kg_per_assembly'] * data['net_elec_capacity'], 3),
+                    assem_size=round(spec_dict['kg_per_assembly'] * capacity, 3),
                     n_assem_core=spec_dict['assemblies_per_core'],
                     n_assem_batch=spec_dict['assemblies_per_batch'],
-                    capacity=data['net_elec_capacity'])
+                    capacity=capacity)
             else:
                 # assume 1000MWe pwr linear core size model if no match
                 reactor_body = template_dict['pwr'].render(
-                    country=data['country'].decode('utf-8'),
+                    country=country,
                     reactor_name=name,
                     type=reactor_type,
-                    assem_size=523.4*193/3000 * data['net_elec_capacity'],
+                    assem_size=523.4*193/3000 * capacity,
                     n_assem_core=3,
                     n_assem_batch=1,
-                    capacity=data['net_elec_capacity'])
+                    capacity=capacity)
 
             self.reactor_str += reactor_body + '\n'
 
@@ -354,7 +248,7 @@ class from_pris:
                 k = key.replace('12_', '')
                 spec_dict = reactor_specs[k]
                 reactor_body = spec_dict['template'].render(
-                        country=data['country'].decode('utf-8'),
+                        country='Generic',
                         type=key,
                         reactor_name=key,
                         assem_size=round(spec_dict['kg_per_assembly'] * val, 3),
@@ -388,7 +282,7 @@ class from_pris:
         valhead = '<val>'
         valtail = '</val>'
 
-        country_set = set([data['country'].decode('utf-8') for data in self.reactor_data])
+        country_set = self.reactor_data.Country.unique()
 
         for country in country_set:
             prototype = ''
@@ -399,13 +293,14 @@ class from_pris:
 
             # for every reactor data corresponding to a country, create a
             # string with its region block
-            for data in [q for q in self.reactor_data if q['country'].decode('utf-8') == country]:
-                if data['lifetime'] <= 0:
+            filtered_df = self.reactor_data[self.reactor_data['Country'] == country]
+            for indx, row in filtered_df.iterrows():
+                if row['lifetime'] <= 0:
                     continue
-                prototype += valhead + self.refine_name(data['reactor_name']) + valtail + '\n'
-                entry_time += valhead + str(data['entry_time']) + valtail + '\n'
+                prototype += valhead + row['Reactor Unit'] + valtail + '\n'
+                entry_time += valhead + str(row['entry_time']) + valtail + '\n'
                 n_build += valhead + '1' + valtail + '\n'
-                lifetime += valhead + str(data['lifetime']) + valtail + '\n'
+                lifetime += valhead + str(row['lifetime']) + valtail + '\n'
 
             render_temp = template.render(prototype=prototype,
                                           start_time=entry_time,
@@ -429,7 +324,7 @@ class from_pris:
 
     def input_render(self):
         template = self.read_template(template_collections.input_template)
-        startyear, startmonth = self.get_ymd(self.init_date)
+        startyear, startmonth = self.init_date.year, self.init_date.month
 
         if self.reprocessing:
             reprocessing_chunk = """<entry>
