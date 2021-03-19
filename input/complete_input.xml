@@ -181,7 +181,7 @@
     <name>NINE MILE POINT-1</name>
     <config>
       <Reactor>
-        <latitude>43.5208</latitude><longitude>-76.4069</longitude>
+        <latitude>43.5204</latitude><longitude>-76.4062</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -599,7 +599,7 @@
     <name>DIABLO CANYON-1</name>
     <config>
       <Reactor>
-        <latitude>35.2108</latitude><longitude>-120.85600000000001</longitude>
+        <latitude>35.2108</latitude><longitude>-120.856</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1171,7 +1171,7 @@
     <name>DAVIS BESSE-1</name>
     <config>
       <Reactor>
-        <latitude>41.596920000000004</latitude><longitude>-83.088999</longitude>
+        <latitude>41.59692</latitude><longitude>-83.088999</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1237,7 +1237,7 @@
     <name>DIABLO CANYON-2</name>
     <config>
       <Reactor>
-        <latitude>35.2108</latitude><longitude>-120.85600000000001</longitude>
+        <latitude>35.2108</latitude><longitude>-120.856</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
