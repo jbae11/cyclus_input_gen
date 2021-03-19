@@ -11,6 +11,7 @@ class template_collections:
     <name>{{ reactor_name }}</name>
     <config>
       <Reactor>
+        {{position_}}
         <fuel_inrecipes>  <val>natl_u_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>used_candu_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>natl_u</val>                   </fuel_incommods>
@@ -48,6 +49,7 @@ class template_collections:
     <name>{{reactor_name}}</name>
     <config>
       <Cyborg>
+        {{position_}}
         <power_cap>{{capacity}}</power_cap>
         <assem_size>{{assem_size}}</assem_size>
         <fuel_recipes>    <val>uox_fuel_recipe</val>      </fuel_recipes>
@@ -71,6 +73,7 @@ class template_collections:
         <name>{{ reactor_name }}</name>
         <config>
           <f33_reactor>
+            {{position_}}
             <fuel_inrecipe>uox_fuel_recipe</fuel_inrecipe>
             <fuel_incommod>uox</fuel_incommod>
             <fuel_outcommod>uox_waste</fuel_outcommod>
@@ -96,6 +99,7 @@ class template_collections:
     <name>{{ reactor_name }}</name>
     <config>
       <Reactor>
+        {{position_}}
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -119,6 +123,7 @@ class template_collections:
             <name>{{ reactor_name }}</name>
             <config>
               <f33_reactor>
+                {{position_}}
                 <fuel_inrecipe>uox_fuel_recipe</fuel_inrecipe>
                 <fuel_incommod>uox</fuel_incommod>
                 <fuel_outcommod>uox_waste</fuel_outcommod>
@@ -144,6 +149,7 @@ class template_collections:
         <name>{{ reactor_name }}</name>
         <config>
           <Reactor>
+            {{position_}}
             <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
             <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
             <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -167,6 +173,7 @@ class template_collections:
     <name>{{ reactor_name }}</name>
     <config>
       <Cyborg>
+        {{position_}}
         <power_cap>{{capacity}}</power_cap>
         <assem_size>{{assem_size}}</assem_size>
         <fuel_recipes>  <val>uox_fuel_recipe</val>       <val>mox_fuel_recipe</val>        </fuel_inrecipes>
@@ -191,6 +198,7 @@ class template_collections:
     <name>{{ reactor_name }}</name>
     <config>
       <Reactor>
+        {{position_}}
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       <val>mox_fuel_recipe</val>        </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  <val>mox_used_fuel_recipe</val>   </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   <val>mox</val>                    </fuel_incommods>
@@ -214,6 +222,7 @@ class template_collections:
     <name>{{ reactor_name }}</name>
     <config>
       <Reactor>
+        {{position_}}
         <fuel_inrecipes>  <val>nat_u_recipe</val>   </fuel_inrecipes>
         <fuel_outrecipes> <val>magnox_used</val>    </fuel_outrecipes>
         <fuel_incommods>  <val>nat_u</val>          </fuel_incommods>

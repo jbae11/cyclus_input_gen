@@ -181,6 +181,7 @@
     <name>NINE MILE POINT-1</name>
     <config>
       <Reactor>
+        <latitude>43.5208</latitude><longitude>-76.4069</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -202,6 +203,7 @@
     <name>DRESDEN-2</name>
     <config>
       <Reactor>
+        <latitude>41.3897</latitude><longitude>-88.2681</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -223,6 +225,7 @@
     <name>GINNA</name>
     <config>
       <Reactor>
+        <latitude>43.2778</latitude><longitude>-77.31</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -244,6 +247,7 @@
     <name>DRESDEN-3</name>
     <config>
       <Reactor>
+        <latitude>41.3897</latitude><longitude>-88.2681</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -265,6 +269,7 @@
     <name>QUAD CITIES-1</name>
     <config>
       <Reactor>
+        <latitude>41.7264</latitude><longitude>-90.31</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -286,6 +291,7 @@
     <name>QUAD CITIES-2</name>
     <config>
       <Reactor>
+        <latitude>41.7264</latitude><longitude>-90.31</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -307,6 +313,7 @@
     <name>PALISADES</name>
     <config>
       <Reactor>
+        <latitude>42.3228</latitude><longitude>-86.3144</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -328,6 +335,7 @@
     <name>ROBINSON-2</name>
     <config>
       <Reactor>
+        <latitude>34.4028</latitude><longitude>-80.1583</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -349,6 +357,7 @@
     <name>TURKEY POINT-3</name>
     <config>
       <Reactor>
+        <latitude>25.4342</latitude><longitude>-80.3306</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -370,6 +379,7 @@
     <name>TURKEY POINT-4</name>
     <config>
       <Reactor>
+        <latitude>25.4342</latitude><longitude>-80.3306</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -391,6 +401,7 @@
     <name>BROWNS FERRY-1</name>
     <config>
       <Reactor>
+        <latitude>34.7039</latitude><longitude>-87.1186</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -412,6 +423,7 @@
     <name>BROWNS FERRY-2</name>
     <config>
       <Reactor>
+        <latitude>34.7039</latitude><longitude>-87.1186</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -433,6 +445,7 @@
     <name>MONTICELLO</name>
     <config>
       <Reactor>
+        <latitude>45.3336</latitude><longitude>-93.8492</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -454,6 +467,7 @@
     <name>POINT BEACH-1</name>
     <config>
       <Reactor>
+        <latitude>44.2811</latitude><longitude>-87.5367</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -475,6 +489,7 @@
     <name>OCONEE-1</name>
     <config>
       <Reactor>
+        <latitude>34.7939</latitude><longitude>-82.8981</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -496,6 +511,7 @@
     <name>OCONEE-2</name>
     <config>
       <Reactor>
+        <latitude>34.7939</latitude><longitude>-82.8981</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -517,6 +533,7 @@
     <name>OCONEE-3</name>
     <config>
       <Reactor>
+        <latitude>34.7939</latitude><longitude>-82.8981</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -538,6 +555,7 @@
     <name>PEACH BOTTOM-2</name>
     <config>
       <Reactor>
+        <latitude>39.7583</latitude><longitude>-76.2681</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -559,6 +577,7 @@
     <name>PEACH BOTTOM-3</name>
     <config>
       <Reactor>
+        <latitude>39.7583</latitude><longitude>-76.2681</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -580,6 +599,7 @@
     <name>DIABLO CANYON-1</name>
     <config>
       <Reactor>
+        <latitude>35.2108</latitude><longitude>-120.85600000000001</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -601,6 +621,7 @@
     <name>CALVERT CLIFFS-1</name>
     <config>
       <Reactor>
+        <latitude>38.4319</latitude><longitude>-76.4422</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -622,6 +643,7 @@
     <name>CALVERT CLIFFS-2</name>
     <config>
       <Reactor>
+        <latitude>38.4319</latitude><longitude>-76.4422</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -643,6 +665,7 @@
     <name>COOPER</name>
     <config>
       <Reactor>
+        <latitude>40.3619</latitude><longitude>-95.6414</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -664,6 +687,7 @@
     <name>PRAIRIE ISLAND-1</name>
     <config>
       <Reactor>
+        <latitude>44.6217</latitude><longitude>-92.6331</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -685,6 +709,7 @@
     <name>SURRY-1</name>
     <config>
       <Reactor>
+        <latitude>37.1656</latitude><longitude>-76.6978</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -706,6 +731,7 @@
     <name>SURRY-2</name>
     <config>
       <Reactor>
+        <latitude>37.1656</latitude><longitude>-76.6978</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -727,6 +753,7 @@
     <name>BROWNS FERRY-3</name>
     <config>
       <Reactor>
+        <latitude>34.7039</latitude><longitude>-87.1186</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -748,6 +775,7 @@
     <name>POINT BEACH-2</name>
     <config>
       <Reactor>
+        <latitude>44.2811</latitude><longitude>-87.5367</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -769,6 +797,7 @@
     <name>FITZPATRICK</name>
     <config>
       <Reactor>
+        <latitude>43.5233</latitude><longitude>-76.3983</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -790,6 +819,7 @@
     <name>SALEM-1</name>
     <config>
       <Reactor>
+        <latitude>39.46297722</latitude><longitude>-75.53422451</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -811,6 +841,7 @@
     <name>SALEM-2</name>
     <config>
       <Reactor>
+        <latitude>39.46297722</latitude><longitude>-75.53422451</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -832,6 +863,7 @@
     <name>HATCH-1</name>
     <config>
       <Reactor>
+        <latitude>31.9342</latitude><longitude>-82.3439</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -853,6 +885,7 @@
     <name>ANO-1</name>
     <config>
       <Reactor>
+        <latitude>35.3103</latitude><longitude>-93.2314</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -874,6 +907,7 @@
     <name>INDIAN POINT-3</name>
     <config>
       <Reactor>
+        <latitude>41.26972222</latitude><longitude>-73.95222222</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -895,6 +929,7 @@
     <name>ANO-2</name>
     <config>
       <Reactor>
+        <latitude>35.3103</latitude><longitude>-93.2314</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -916,6 +951,7 @@
     <name>COOK-1</name>
     <config>
       <Reactor>
+        <latitude>41.9754</latitude><longitude>-86.5659</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -937,6 +973,7 @@
     <name>COOK-2</name>
     <config>
       <Reactor>
+        <latitude>41.9754</latitude><longitude>-86.5659</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -958,6 +995,7 @@
     <name>PRAIRIE ISLAND-2</name>
     <config>
       <Reactor>
+        <latitude>44.6217</latitude><longitude>-92.6331</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -979,6 +1017,7 @@
     <name>MILLSTONE-2</name>
     <config>
       <Reactor>
+        <latitude>41.31194444</latitude><longitude>-72.16861111</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1000,6 +1039,7 @@
     <name>BRUNSWICK-1</name>
     <config>
       <Reactor>
+        <latitude>33.9583</latitude><longitude>-78.0103</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1021,6 +1061,7 @@
     <name>BRUNSWICK-2</name>
     <config>
       <Reactor>
+        <latitude>33.9583</latitude><longitude>-78.0103</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1042,6 +1083,7 @@
     <name>SEQUOYAH-1</name>
     <config>
       <Reactor>
+        <latitude>35.2264</latitude><longitude>-85.0917</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1063,6 +1105,7 @@
     <name>SEQUOYAH-2</name>
     <config>
       <Reactor>
+        <latitude>35.2264</latitude><longitude>-85.0917</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1084,6 +1127,7 @@
     <name>BEAVER VALLEY-1</name>
     <config>
       <Reactor>
+        <latitude>40.6233</latitude><longitude>-80.4306</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1105,6 +1149,7 @@
     <name>ST. LUCIE-1</name>
     <config>
       <Reactor>
+        <latitude>27.3486</latitude><longitude>-80.2464</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1126,6 +1171,7 @@
     <name>DAVIS BESSE-1</name>
     <config>
       <Reactor>
+        <latitude>41.596920000000004</latitude><longitude>-83.088999</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1147,6 +1193,7 @@
     <name>FARLEY-1</name>
     <config>
       <Reactor>
+        <latitude>31.2231</latitude><longitude>-85.1117</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1168,6 +1215,7 @@
     <name>FARLEY-2</name>
     <config>
       <Reactor>
+        <latitude>31.2231</latitude><longitude>-85.1117</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1189,6 +1237,7 @@
     <name>DIABLO CANYON-2</name>
     <config>
       <Reactor>
+        <latitude>35.2108</latitude><longitude>-120.85600000000001</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1210,6 +1259,7 @@
     <name>NORTH ANNA-1</name>
     <config>
       <Reactor>
+        <latitude>38.0606</latitude><longitude>-77.7894</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1231,6 +1281,7 @@
     <name>NORTH ANNA-2</name>
     <config>
       <Reactor>
+        <latitude>38.0606</latitude><longitude>-77.7894</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1252,6 +1303,7 @@
     <name>MCGUIRE-1</name>
     <config>
       <Reactor>
+        <latitude>35.4325</latitude><longitude>-80.9483</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1273,6 +1325,7 @@
     <name>MCGUIRE-2</name>
     <config>
       <Reactor>
+        <latitude>35.4325</latitude><longitude>-80.9483</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1294,6 +1347,7 @@
     <name>HATCH-2</name>
     <config>
       <Reactor>
+        <latitude>31.9342</latitude><longitude>-82.3439</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1315,6 +1369,7 @@
     <name>COLUMBIA</name>
     <config>
       <Reactor>
+        <latitude>46.4711</latitude><longitude>-119.334</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1336,6 +1391,7 @@
     <name>FERMI-2</name>
     <config>
       <Reactor>
+        <latitude>41.9628</latitude><longitude>-83.2575</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1357,6 +1413,7 @@
     <name>WATTS BAR-2</name>
     <config>
       <Reactor>
+        <latitude>35.6028</latitude><longitude>-84.7894</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1378,6 +1435,7 @@
     <name>WATTS BAR-1</name>
     <config>
       <Reactor>
+        <latitude>35.6028</latitude><longitude>-84.7894</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1399,6 +1457,7 @@
     <name>SUMMER-1</name>
     <config>
       <Reactor>
+        <latitude>34.2986</latitude><longitude>-81.3147</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1420,6 +1479,7 @@
     <name>LASALLE-1</name>
     <config>
       <Reactor>
+        <latitude>41.2456</latitude><longitude>-88.6692</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1441,6 +1501,7 @@
     <name>LASALLE-2</name>
     <config>
       <Reactor>
+        <latitude>41.2456</latitude><longitude>-88.6692</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1462,6 +1523,7 @@
     <name>SUSQUEHANNA-1</name>
     <config>
       <Reactor>
+        <latitude>41.0889</latitude><longitude>-76.1489</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1483,6 +1545,7 @@
     <name>SUSQUEHANNA-2</name>
     <config>
       <Reactor>
+        <latitude>41.0889</latitude><longitude>-76.1489</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1504,6 +1567,7 @@
     <name>CATAWBA-1</name>
     <config>
       <Reactor>
+        <latitude>35.0517</latitude><longitude>-81.07</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1525,6 +1589,7 @@
     <name>CATAWBA-2</name>
     <config>
       <Reactor>
+        <latitude>35.0517</latitude><longitude>-81.07</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1546,6 +1611,7 @@
     <name>BEAVER VALLEY-2</name>
     <config>
       <Reactor>
+        <latitude>40.6233</latitude><longitude>-80.4306</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1567,6 +1633,7 @@
     <name>GRAND GULF-1</name>
     <config>
       <Reactor>
+        <latitude>32.0067</latitude><longitude>-91.0483</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1588,6 +1655,7 @@
     <name>LIMERICK-1</name>
     <config>
       <Reactor>
+        <latitude>40.2267</latitude><longitude>-75.5872</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1609,6 +1677,7 @@
     <name>LIMERICK-2</name>
     <config>
       <Reactor>
+        <latitude>40.2267</latitude><longitude>-75.5872</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1630,6 +1699,7 @@
     <name>MILLSTONE-3</name>
     <config>
       <Reactor>
+        <latitude>41.31194444</latitude><longitude>-72.16861111</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1651,6 +1721,7 @@
     <name>PERRY-1</name>
     <config>
       <Reactor>
+        <latitude>41.8008</latitude><longitude>-81.1433</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1672,6 +1743,7 @@
     <name>WATERFORD-3</name>
     <config>
       <Reactor>
+        <latitude>29.9953</latitude><longitude>-90.4711</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1693,6 +1765,7 @@
     <name>COMANCHE PEAK-1</name>
     <config>
       <Reactor>
+        <latitude>32.2983</latitude><longitude>-97.785</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1714,6 +1787,7 @@
     <name>COMANCHE PEAK-2</name>
     <config>
       <Reactor>
+        <latitude>32.2983</latitude><longitude>-97.785</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1735,6 +1809,7 @@
     <name>BYRON-1</name>
     <config>
       <Reactor>
+        <latitude>42.0742</latitude><longitude>-89.2819</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1756,6 +1831,7 @@
     <name>BYRON-2</name>
     <config>
       <Reactor>
+        <latitude>42.0742</latitude><longitude>-89.2819</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1777,6 +1853,7 @@
     <name>BRAIDWOOD-1</name>
     <config>
       <Reactor>
+        <latitude>41.2436</latitude><longitude>-88.2292</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1798,6 +1875,7 @@
     <name>BRAIDWOOD-2</name>
     <config>
       <Reactor>
+        <latitude>41.2436</latitude><longitude>-88.2292</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1819,6 +1897,7 @@
     <name>NINE MILE POINT-2</name>
     <config>
       <Reactor>
+        <latitude>43.5208</latitude><longitude>-76.4069</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1840,6 +1919,7 @@
     <name>CALLAWAY-1</name>
     <config>
       <Reactor>
+        <latitude>38.7617</latitude><longitude>-91.78</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1861,6 +1941,7 @@
     <name>CLINTON-1</name>
     <config>
       <Reactor>
+        <latitude>40.1722</latitude><longitude>-88.835</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1882,6 +1963,7 @@
     <name>SOUTH TEXAS-1</name>
     <config>
       <Reactor>
+        <latitude>28.7956</latitude><longitude>-96.0489</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1903,6 +1985,7 @@
     <name>SOUTH TEXAS-2</name>
     <config>
       <Reactor>
+        <latitude>28.7956</latitude><longitude>-96.0489</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1924,6 +2007,7 @@
     <name>HOPE CREEK-1</name>
     <config>
       <Reactor>
+        <latitude>39.46777778</latitude><longitude>-75.53805556</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1945,6 +2029,7 @@
     <name>PALO VERDE-1</name>
     <config>
       <Reactor>
+        <latitude>33.3892</latitude><longitude>-112.865</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1966,6 +2051,7 @@
     <name>PALO VERDE-2</name>
     <config>
       <Reactor>
+        <latitude>33.3892</latitude><longitude>-112.865</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -1987,6 +2073,7 @@
     <name>PALO VERDE-3</name>
     <config>
       <Reactor>
+        <latitude>33.3892</latitude><longitude>-112.865</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -2008,6 +2095,7 @@
     <name>SEABROOK-1</name>
     <config>
       <Reactor>
+        <latitude>42.8989</latitude><longitude>-70.8508</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -2029,6 +2117,7 @@
     <name>VOGTLE-1</name>
     <config>
       <Reactor>
+        <latitude>33.1433</latitude><longitude>-81.7606</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -2050,6 +2139,7 @@
     <name>VOGTLE-2</name>
     <config>
       <Reactor>
+        <latitude>33.1433</latitude><longitude>-81.7606</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -2071,6 +2161,7 @@
     <name>RIVER BEND-1</name>
     <config>
       <Reactor>
+        <latitude>30.7567</latitude><longitude>-91.3333</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -2092,6 +2183,7 @@
     <name>WOLF CREEK</name>
     <config>
       <Reactor>
+        <latitude>38.2389</latitude><longitude>-95.6889</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -2113,6 +2205,7 @@
     <name>ST. LUCIE-2</name>
     <config>
       <Reactor>
+        <latitude>27.3486</latitude><longitude>-80.2464</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -2134,6 +2227,7 @@
     <name>HARRIS-1</name>
     <config>
       <Reactor>
+        <latitude>35.6333</latitude><longitude>-78.955</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -2155,6 +2249,7 @@
     <name>AP1000</name>
     <config>
       <Reactor>
+        <latitude>35.6333</latitude><longitude>-78.955</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -2176,6 +2271,7 @@
     <name>BWR</name>
     <config>
       <Reactor>
+        <latitude>35.6333</latitude><longitude>-78.955</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -2197,6 +2293,7 @@
     <name>PWR</name>
     <config>
       <Reactor>
+        <latitude>35.6333</latitude><longitude>-78.955</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -2218,6 +2315,7 @@
     <name>EPR</name>
     <config>
       <Reactor>
+        <latitude>35.6333</latitude><longitude>-78.955</longitude>
         <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
         <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -2239,6 +2337,7 @@
         <name>SMR</name>
         <config>
           <Reactor>
+            <latitude>35.6333</latitude><longitude>-78.955</longitude>
             <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
             <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
             <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
@@ -2261,6 +2360,7 @@
         <name>12_SMR</name>
         <config>
           <Reactor>
+            <latitude>35.6333</latitude><longitude>-78.955</longitude>
             <fuel_inrecipes>  <val>uox_fuel_recipe</val>       </fuel_inrecipes>
             <fuel_outrecipes> <val>uox_used_fuel_recipe</val>  </fuel_outrecipes>
             <fuel_incommods>  <val>uox</val>                   </fuel_incommods>

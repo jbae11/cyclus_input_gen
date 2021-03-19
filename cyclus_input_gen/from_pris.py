@@ -150,6 +150,12 @@ class from_pris:
         name = name.replace(r'&', 'and')
         return name
 
+    def get_position_str(self, row):
+        longitude = row['Longitude']
+        latitude = row['Latitude']
+        if np.isnan(longitude): return ''
+        return '<latitude>%s</latitude><longitude>%s</longitude>' %(latitude, longitude)
+
 
     def reactor_render(self):
         self.reactor_str = ''
@@ -218,6 +224,7 @@ class from_pris:
             reactor_type = row['Type']
             country = row['Country']
             capacity = row['Net Capacity (MWe)']
+            position_str = self.get_position_str(row)
             if reactor_type in reactor_specs.keys():
                 # if the reactor type matches with the pre-defined dictionary,
                 # use the specifications in the dictionary.
@@ -229,7 +236,8 @@ class from_pris:
                     assem_size=round(spec_dict['kg_per_assembly'] * capacity, 3),
                     n_assem_core=spec_dict['assemblies_per_core'],
                     n_assem_batch=spec_dict['assemblies_per_batch'],
-                    capacity=capacity)
+                    capacity=capacity,
+                    position_=position_str)
             else:
                 # assume 1000MWe pwr linear core size model if no match
                 reactor_body = template_dict['pwr'].render(
@@ -239,7 +247,8 @@ class from_pris:
                     assem_size=523.4*193/3000 * capacity,
                     n_assem_core=3,
                     n_assem_batch=1,
-                    capacity=capacity)
+                    capacity=capacity,
+                    position_=position_str)
 
             self.reactor_str += reactor_body + '\n'
 
@@ -254,7 +263,8 @@ class from_pris:
                         assem_size=round(spec_dict['kg_per_assembly'] * val, 3),
                         n_assem_core=spec_dict['assemblies_per_core'],
                         n_assem_batch=spec_dict['assemblies_per_batch'],
-                        capacity=val)
+                        capacity=val,
+                        position_=position_str)
                 self.reactor_str += reactor_body + '\n'
             self.done_generic = True
 
