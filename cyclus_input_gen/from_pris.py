@@ -6,7 +6,7 @@ import os
 import pandas as pd
 from datetime import datetime
 from cyclus_input_gen.templates import template_collections
-
+from cyclus_input_gen.reactor_specs import get_data
 
 class from_pris:
     def __init__(self, csv_file, init_date, duration,
@@ -172,34 +172,53 @@ class from_pris:
 
         template_dict = {k:self.read_template(v) for k, v in template_dict.items()}
 
-
+        reactor_spec_data = get_data()
+        ap1000 = reactor_spec_data['ap1000']
+        bwr = reactor_spec_data['bwr']
+        pwr = reactor_spec_data['pwr']
         # from NRC application
+        # assemblies per core is normalized by capcity
         ap1000_spec = {'template': template_dict['pwr'],
-                       'kg_per_assembly': 612.5 * 157 / 3300 ,
-                       'assemblies_per_core': 3,
+                       'kg_per_assembly': ap1000['u_mass']/(ap1000['elec_power']*ap1000['num_batch']) ,
+                       'assemblies_per_core': ap1000['num_batch'],
+                       'cycle_time': ap1000['cycle_length']/30,
+                       'refuel_time': 1,
                        'assemblies_per_batch': 1}
         bwr_spec = {'template': template_dict['pwr'],
-                    'kg_per_assembly': 180 * 764 / 4392.0,
-                    'assemblies_per_core': 4,
+                    'kg_per_assembly': bwr['u_mass'] / (bwr['elec_power']*bwr['num_batch']),
+                    'assemblies_per_core': bwr['num_batch'],
+                    'cycle_time': bwr['cycle_length']/30,
+                    'refuel_time': 1,
                     'assemblies_per_batch': 1}
+        pwr_spec = {'template': template_dict['pwr'],
+                    'kg_per_assembly': pwr['u_mass'] / (pwr['elec_power'] * pwr['num_batch']),
+                    'assemblies_per_core': pwr['num_batch'],
+                    'cycle_time': pwr['cycle_length']/30,
+                    'refuel_time': 1,
+                    'assemblies_per_batch': 1}
+
         phwr_spec = {'template': template_dict['candu'],
                      'kg_per_assembly': 8000 / 473,
                      'assemblies_per_core': 473 / 500.0,
-                     'assemblies_per_batch': 60}
+                     'assemblies_per_batch': 60,
+                     'cycle_time': 1,
+                    'refuel_time': 0,}
         candu_spec = {'template': template_dict['candu'],
                       'kg_per_assembly': 8000 / 473,
                       'assemblies_per_core': 473 / 500.0,
+                      'cycle_time': 1,
+                      'refuel_time': 0,
                       'assemblies_per_batch': 60}
-        pwr_spec = {'template': template_dict['pwr'],
-                    'kg_per_assembly': 446.0 * 193 / 3000.0,
-                    'assemblies_per_core': 3,
-                    'assemblies_per_batch': 1}
         epr_spec = {'template': template_dict['pwr'],
                     'kg_per_assembly': 467.0 * 216 / 4800,
+                    'cycle_time': 14,
+                    'refuel_time': 1,
                     'assemblies_per_core': 3,
                     'assemblies_per_batch': 1}
         smr_spec = {'template': template_dict['smr'],
                     'kg_per_assembly': 2997.12 / 50,
+                    'cycle_time': 12,
+                    'refuel_time': 1,
                     'assemblies_per_core': 3,
                     'assemblies_per_batch': 1}
         pow_dict = {'AP1000': 1110,
@@ -225,6 +244,8 @@ class from_pris:
             country = row['Country']
             capacity = row['Net Capacity (MWe)']
             position_str = self.get_position_str(row)
+            if not position_str:
+                print(f'{name} does not have any position data - leaving it blank.')
             if reactor_type in reactor_specs.keys():
                 # if the reactor type matches with the pre-defined dictionary,
                 # use the specifications in the dictionary.
@@ -233,6 +254,8 @@ class from_pris:
                     country=country,
                     type=reactor_type,
                     reactor_name=name,
+                    refuel_time=int(spec_dict['refuel_time']),
+                    cycle_time=int(spec_dict['cycle_time']),
                     assem_size=round(spec_dict['kg_per_assembly'] * capacity, 3),
                     n_assem_core=spec_dict['assemblies_per_core'],
                     n_assem_batch=spec_dict['assemblies_per_batch'],
@@ -244,7 +267,9 @@ class from_pris:
                     country=country,
                     reactor_name=name,
                     type=reactor_type,
-                    assem_size=523.4*193/3000 * capacity,
+                    assem_size=pwr['u_mass']/pwr['thermal_power'] * capacity,
+                    refuel_time=1,
+                    cycle_time=14,
                     n_assem_core=3,
                     n_assem_batch=1,
                     capacity=capacity,
@@ -260,6 +285,8 @@ class from_pris:
                         country='Generic',
                         type=key,
                         reactor_name=key,
+                        refuel_time=int(spec_dict['refuel_time']),
+                        cycle_time=int(spec_dict['cycle_time']),
                         assem_size=round(spec_dict['kg_per_assembly'] * val, 3),
                         n_assem_core=spec_dict['assemblies_per_core'],
                         n_assem_batch=spec_dict['assemblies_per_batch'],

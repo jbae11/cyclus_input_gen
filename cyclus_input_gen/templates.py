@@ -17,9 +17,9 @@ class template_collections:
         <fuel_incommods>  <val>natl_u</val>                   </fuel_incommods>
         <fuel_outcommods> <val>used_candu</val>             </fuel_outcommods>
         <fuel_prefs>      <val>1.0</val>                   </fuel_prefs>
-        <cycle_time>1</cycle_time>
-        <refuel_time>0</refuel_time>
-        <assem_size>{{assem_size}}</assem_size>
+        <cycle_time>{{cycle_time}}</cycle_time>
+        <refuel_time>{{refuel_time}}</refuel_time>
+        <assem_size>{{assem_size}}F</assem_size>
         <n_assem_core>{{ n_assem_core}}</n_assem_core>
         <n_assem_batch>{{n_assem_batch}}</n_assem_batch>
         <power_cap>{{capacity}}</power_cap>
@@ -54,8 +54,8 @@ class template_collections:
         <assem_size>{{assem_size}}</assem_size>
         <fuel_recipes>    <val>uox_fuel_recipe</val>      </fuel_recipes>
         <fuel_incommods>  <val>uox</val>           </fuel_incommods>
-        <cycle_time>15</cycle_time>
-        <refuel_time>1</refuel_time>
+        <cycle_time>{{cycle_time}}</cycle_time>
+        <refuel_time>{{refuel_time}}</refuel_time>
         <assembly_type>ce16x16</assembly_type>
         <fuel_type>UOX</fuel_type>
         <n_assem_core>{{n_assem_core}}</n_assem_core>
@@ -77,8 +77,8 @@ class template_collections:
             <fuel_inrecipe>uox_fuel_recipe</fuel_inrecipe>
             <fuel_incommod>uox</fuel_incommod>
             <fuel_outcommod>uox_waste</fuel_outcommod>
-            <cycle_time_eq>15</cycle_time_eq>
-            <refuel_time_eq>1</refuel_time_eq>
+            <cycle_time_eq>{{cycle_time}}</cycle_time_eq>
+            <refuel_time_eq>{{refuel_time}}</refuel_time_eq>
             <assem_size>{{assem_size}}</assem_size>
             <n_assem_core>{{ n_assem_core}}</n_assem_core>
             <n_assem_batch>{{n_assem_batch}}</n_assem_batch>
@@ -105,8 +105,8 @@ class template_collections:
         <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
         <fuel_outcommods> <val>uox_waste</val>             </fuel_outcommods>
         <fuel_prefs>      <val>1.0</val>                   </fuel_prefs>
-        <cycle_time>15</cycle_time>
-        <refuel_time>1</refuel_time>
+        <cycle_time>{{cycle_time}}</cycle_time>
+        <refuel_time>{{refuel_time}}</refuel_time>
         <assem_size>{{assem_size}}</assem_size>
         <n_assem_core>{{ n_assem_core}}</n_assem_core>
         <n_assem_batch>{{n_assem_batch}}</n_assem_batch>
@@ -127,8 +127,8 @@ class template_collections:
                 <fuel_inrecipe>uox_fuel_recipe</fuel_inrecipe>
                 <fuel_incommod>uox</fuel_incommod>
                 <fuel_outcommod>uox_waste</fuel_outcommod>
-                <cycle_time_eq>24</cycle_time_eq>
-                <refuel_time_eq>1</refuel_time_eq>
+                <cycle_time_eq>{{cycle_time}}</cycle_time_eq>
+                <refuel_time_eq>{{refuel_time}}</refuel_time_eq>
                 <assem_size>{{assem_size}}</assem_size>
                 <n_assem_core>{{ n_assem_core}}</n_assem_core>
                 <n_assem_batch>{{n_assem_batch}}</n_assem_batch>
@@ -155,8 +155,8 @@ class template_collections:
             <fuel_incommods>  <val>uox</val>                   </fuel_incommods>
             <fuel_outcommods> <val>uox_waste</val>             </fuel_outcommods>
             <fuel_prefs>      <val>1.0</val>                   </fuel_prefs>
-            <cycle_time>24</cycle_time>
-            <refuel_time>1</refuel_time>
+            <cycle_time>{{cycle_time}}</cycle_time>
+            <refuel_time>{{refuel_time}}</refuel_time>
             <assem_size>{{assem_size}}</assem_size>
             <n_assem_core>{{ n_assem_core}}</n_assem_core>
             <n_assem_batch>{{n_assem_batch}}</n_assem_batch>
@@ -179,8 +179,8 @@ class template_collections:
         <fuel_recipes>  <val>uox_fuel_recipe</val>       <val>mox_fuel_recipe</val>        </fuel_inrecipes>
         <fuel_incommods>  <val>uox</val>                   <val>mox</val>                    </fuel_incommods>
         <fuel_prefs>      <val>1.0</val>                   <val>2.0</val>                    </fuel_prefs>
-        <cycle_time>15</cycle_time>
-        <refuel_time>1</refuel_time>
+        <cycle_time>{{cycle_time}}</cycle_time>
+        <refuel_time>{{refuel_time}}</refuel_time>
         <assembly_type>mox_ce16x16</assembly_type>
         <fuel_type>MOX</fuel_type>
         <n_assem_core>{{ n_assem_core}}</n_assem_core>
@@ -204,8 +204,8 @@ class template_collections:
         <fuel_incommods>  <val>uox</val>                   <val>mox</val>                    </fuel_incommods>
         <fuel_outcommods> <val>uox_waste</val>             <val>mox_waste</val>              </fuel_outcommods>
         <fuel_prefs>      <val>1.0</val>                   <val>2.0</val>                    </fuel_prefs>
-        <cycle_time>15</cycle_time>
-        <refuel_time>1</refuel_time>
+        <cycle_time>{{cycle_time}}</cycle_time>
+        <refuel_time>{{refuel_time}}</refuel_time>
         <assem_size>{{assem_size}}</assem_size>
         <n_assem_core>{{ n_assem_core}}</n_assem_core>
         <n_assem_batch>{{n_assem_batch}}</n_assem_batch>
@@ -228,8 +228,8 @@ class template_collections:
         <fuel_incommods>  <val>nat_u</val>          </fuel_incommods>
         <fuel_outcommods> <val>magnox_waste</val>   </fuel_outcommods>
         <fuel_prefs>      <val>1.0</val>            </fuel_prefs>
-        <cycle_time>15</cycle_time>
-        <refuel_time>1</refuel_time>
+        <cycle_time>{{cycle_time}}</cycle_time>
+        <refuel_time>{{refuel_time}}</refuel_time>
         <assem_size>{{assem_size}}</assem_size>
         <n_assem_core>{{ n_assem_core}}</n_assem_core>
         <n_assem_batch>{{n_assem_batch}}</n_assem_batch>
@@ -461,6 +461,7 @@ class template_collections:
      <nuclide> <id>U235</id>  <comp>0.0319885317</comp> </nuclide> 
      <nuclide> <id>U238</id>  <comp>0.96775558</comp> </nuclide>
   </recipe> 
+  
 
   <recipe>
     <name>depleted_u</name>
